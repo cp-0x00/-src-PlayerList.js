@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
+/* =========================================================================
+   ENTERPRISE UI INTERFACE STYLING ENVIRONMENT SPECIFICATION
+   ========================================================================= */
+
+/* Root Layout Constants */
+:root {
+    --bg-light-gray: #f8f9fa;
+    --card-shadow-sm: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    --card-shadow-hover: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --transition-speed: 0.25s;
+    --easing-curve: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* System Background Baseline Reset */
+body {
+    background-color: var(--bg-light-gray);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Typography Enhancements */
+.fw-extrabold {
+    font-weight: 800;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.tracking-tight {
+    letter-spacing: -0.025em;
 }
 
-.App-link {
-  color: #61dafb;
+.tracking-wider {
+    letter-spacing: 0.05em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.fs-7 {
+    font-size: 0.75rem;
+}
+
+/* Layout Structural Constraining Constraints */
+.max-w-600 {
+    max-width: 600px;
+}
+
+.max-w-120 {
+    max-width: 120px;
+}
+
+/* Hardware-Accelerated High-Performance Interaction Layer */
+.hover-action-card {
+    will-change: transform, box-shadow;
+    transform: translateZ(0); /* Forces GPU layer caching optimization */
+    transition: transform var(--transition-speed) var(--easing-curve), 
+                box-shadow var(--transition-speed) var(--easing-curve);
+}
+
+/* Trigger smooth elevation and scaling transitions on mouse tracking entry */
+.hover-action-card:hover {
+    transform: translateY(-4px) translateZ(0);
+    box-shadow: var(--card-shadow-hover) !important;
+    cursor: pointer;
+}
+
+/* Ensure images maintain clear scaling boundaries without tearing layout cells */
+.hover-action-card img {
+    transition: transform var(--transition-speed) var(--easing-curve);
+}
+
+.hover-action-card:hover img {
+    transform: scale(1.02);
+}
+
+/* Clean Custom Scrollbar for Presentation Grids */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-light-gray);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ced4da;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #adb5bd;
 }
